@@ -5,8 +5,8 @@ using System.Text;
 
 namespace bll
 {
-    public interface IEncriptor
+    public interface IEncryptor
     {
-        string Encript(string message);
+        string Encrypt(string message);
     }
 }

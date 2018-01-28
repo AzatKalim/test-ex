@@ -13,8 +13,12 @@ namespace Test.Controllers
         //
         // GET: /Home/
 
-        IEncriptor encriptor;
+        IEncryptor encryptor;
 
+        public HomeController(IEncryptor encryptor)
+        {
+            this.encryptor = encryptor;
+        }
         public ActionResult Index()
         {
             //ViewBag.Greeting =hour.ToString();
@@ -31,9 +35,8 @@ namespace Test.Controllers
         [HttpPost]
         public void  RsvpForm(Message guest)
         {
-            encriptor = new Encriptor();
             if (ModelState.IsValid)
-                ViewBag.Text = encriptor.Encript(guest.Text);
+                ViewBag.Text = encryptor.Encrypt(guest.Text);
             //else
             //    // Обнаружена ошибка проверки достоверности
             //    return View();

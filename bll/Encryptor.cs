@@ -7,19 +7,20 @@ using dal;
 
 namespace bll
 {
-    public class Encriptor:IEncriptor
+    public class Encryptor:IEncryptor
     {
         Context context;
 
-        public Encriptor()
+        public Encryptor()
         {
             Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseAlways<Context>());
-            context = new Context();         
+            context = new Context("dbContext2");         
             FillReplacements();
         }
-        public string Encript(string message)
+        public string Encrypt(string message)
         {
             var buffer = new StringBuilder();
+            SaveMessageInDb(message);
             foreach (char symbol in message)
             {
                 var temp = symbol.ToString();
@@ -27,23 +28,19 @@ namespace bll
                               where replacement.oldSymbol==temp
                               select replacement.newSymbol;
                 if (replace != null)
-                {
                     foreach (var item in replace)
                     {
                         buffer.Append(item);
-                    }
-                    
-                }
+                    }               
                 else
-                {
                     buffer.Append(symbol);
-                }
-
-            }
-
+            }          
             return buffer.ToString();
         }
 
+        /// <summary>
+        ///  заполнение таблицы замен для английских букв a-z
+        /// </summary>
         public void FillReplacements()
         {
             int id=0;
@@ -63,6 +60,21 @@ namespace bll
                 newSymbol = 'a'.ToString()
             };
             context.Replacements.Add(lastSymbol);
+            context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Сохранение 
+        /// </summary>
+        /// <param name="message"></param>
+        public void SaveMessageInDb(string message)
+        {
+            var messageToHistory = new HistoryMessages()
+            {
+                Message = message,
+                DateAdded = DateTime.Now
+            };
+            context.Messages.Add(messageToHistory);
             context.SaveChanges();
         }
     }
