@@ -1,0 +1,9 @@
+C:\Users\Азат\Desktop\Test\dal\bin\Debug\dal.dll.config
+C:\Users\Азат\Desktop\Test\dal\bin\Debug\dal.dll
+C:\Users\Азат\Desktop\Test\dal\bin\Debug\dal.pdb
+C:\Users\Азат\Desktop\Test\dal\bin\Debug\EntityFramework.dll
+C:\Users\Азат\Desktop\Test\dal\bin\Debug\EntityFramework.xml
+C:\Users\Азат\Desktop\Test\dal\obj\Debug\dal.csprojResolveAssemblyReference.cache
+C:\Users\Азат\Desktop\Test\dal\obj\Debug\dal.dll
+C:\Users\Азат\Desktop\Test\dal\obj\Debug\dal.pdb
+C:\Users\Азат\Desktop\Test\dal\bin\Debug\ru\EntityFramework.resources.dll

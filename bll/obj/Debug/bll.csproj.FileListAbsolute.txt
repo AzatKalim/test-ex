@@ -1,0 +1,11 @@
+C:\Users\Азат\Desktop\Test\bll\obj\Debug\bll.csprojResolveAssemblyReference.cache
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\bll.dll
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\bll.pdb
+C:\Users\Азат\Desktop\Test\bll\obj\Debug\bll.dll
+C:\Users\Азат\Desktop\Test\bll\obj\Debug\bll.pdb
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\dal.dll
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\EntityFramework.dll
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\dal.pdb
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\EntityFramework.xml
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\bll.dll.config
+C:\Users\Азат\Desktop\Test\bll\bin\Debug\ru\EntityFramework.resources.dll

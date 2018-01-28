@@ -1,0 +1,27 @@
+﻿@model Test.Models.Message
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+        <p>Введите сообщение: @Html.TextBoxFor(x => x.Text)</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <input type="submit" value="Зашифровать" />
+    }
+    </div>
+    <div>
+       @ViewBag.Text
+    </div>
+</body>
+</html>
