@@ -10,17 +10,25 @@ namespace bll
     public class Encryptor:IEncryptor
     {
         Context context;
+        
+        ISavior savior;
 
         public Encryptor()
         {
             Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseAlways<Context>());
-            context = new Context("dbContext2");         
+            context = new Context("dbContext2");
+            savior = new SaviorMessagesInDb(context.Messages);
             FillReplacements();
         }
+        /// <summary>
+        /// функция шифрования сообщений
+        /// </summary>
+        /// <param name="message"> сообщение</param>
+        /// <returns> зашифрованное сообщение</returns>
         public string Encrypt(string message)
         {
             var buffer = new StringBuilder();
-            SaveMessageInDb(message);
+            savior.SaveMessage(message);
             foreach (char symbol in message)
             {
                 var temp = symbol.ToString();
@@ -63,19 +71,5 @@ namespace bll
             context.SaveChanges();
         }
 
-        /// <summary>
-        /// Сохранение 
-        /// </summary>
-        /// <param name="message"></param>
-        public void SaveMessageInDb(string message)
-        {
-            var messageToHistory = new HistoryMessages()
-            {
-                Message = message,
-                DateAdded = DateTime.Now
-            };
-            context.Messages.Add(messageToHistory);
-            context.SaveChanges();
-        }
     }
 }

@@ -15,14 +15,16 @@ namespace Test.Controllers
 
         IEncryptor encryptor;
 
+        public HomeController()
+            : this(new Encryptor())
+        {
+        }
         public HomeController(IEncryptor encryptor)
         {
             this.encryptor = encryptor;
         }
         public ActionResult Index()
         {
-            //ViewBag.Greeting =hour.ToString();
-           
             return View();
         }
 
