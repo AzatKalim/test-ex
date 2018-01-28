@@ -5,6 +5,9 @@ using System.Text;
 
 namespace bll
 {
+    /// <summary>
+    /// Интерфейс сохранения сообщений
+    /// </summary>
     interface ISavior
     {
         void SaveMessage (string text);

@@ -8,7 +8,13 @@ namespace Test.Models
 {
     public class Message
     {
+        public Message (String text)
+	    {
+            this.Text = text;
+	    }
         [Required(ErrorMessage = "Пожалуйста, введите сообщение")]
         public string Text {get;set;}
+
+
     }
 }

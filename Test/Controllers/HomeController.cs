@@ -10,9 +10,6 @@ namespace Test.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
-
         IEncryptor encryptor;
 
         public HomeController()
@@ -29,19 +26,22 @@ namespace Test.Controllers
         }
 
         [HttpGet]
-        public ViewResult RsvpForm()
+        public ViewResult EncryptForm()
         {
             return View();
         }
 
-        [HttpPost]
-        public void  RsvpForm(Message guest)
+        // выполнение ajax 
+        public ActionResult EncryptedMessage(string text)
         {
+            var encryptedText = "";
             if (ModelState.IsValid)
-                ViewBag.Text = encryptor.Encrypt(guest.Text);
-            //else
-            //    // Обнаружена ошибка проверки достоверности
-            //    return View();
+            {
+                encryptedText = encryptor.Encrypt(text);
+                return PartialView(new Message(encryptedText));
+            }
+            else
+                return PartialView();
         }
     }
 }

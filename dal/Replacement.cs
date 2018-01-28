@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace dal
 {
+    // таблица замен
     public class Replacement
     {
         public int Id { get; set; }

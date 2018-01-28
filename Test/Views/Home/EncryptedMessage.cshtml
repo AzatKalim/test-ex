@@ -1,0 +1,9 @@
+﻿@model Test.Models.Message
+@using (Ajax.BeginForm("EncryptedMessage", new AjaxOptions { UpdateTargetId = "result" }))
+    {
+        <input type="text" name="text" />
+        <input type="submit" value="Зашифровать" />
+    }     
+<div id="result"> 
+    <p>Зашифрованое сообщение : @Model.Text</p>   
+</div>
