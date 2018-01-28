@@ -14,23 +14,8 @@ namespace bll
         public Encriptor()
         {
             Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseAlways<Context>());
-            context = new Context();
-            //var list = context.Replacements.ToList();
-            
-            //foreach (var item in list)
-            //{
-            ////    Console.WriteLine(item.Id +' ' + item.oldSymbol + ' ' + item.newSymbol);
-            //   context.Replacements.Remove(item);
-            //}
-            ////context.SaveChanges();
+            context = new Context();         
             FillReplacements();
-            var list = context.Replacements.ToList();
-
-            foreach (var item in list)
-            {
-                Console.WriteLine(item.Id + " " + item.oldSymbol + " " + item.newSymbol);
-            }
-            return;
         }
         public string Encript(string message)
         {
@@ -67,15 +52,15 @@ namespace bll
                 var temp = new Replacement()
                 {
                     Id=id++,
-                    oldSymbol = i,//.ToString(),
-                    newSymbol = ((char)(i + 1))//.ToString()
+                    oldSymbol = i.ToString(),
+                    newSymbol = ((char)(i + 1)).ToString()
                 };
                 context.Replacements.Add(temp);
             }
             var lastSymbol = new Replacement()
             {
-                oldSymbol = 'z',//.ToString(),
-                newSymbol = 'a'//.ToString()
+                oldSymbol = 'z'.ToString(),
+                newSymbol = 'a'.ToString()
             };
             context.Replacements.Add(lastSymbol);
             context.SaveChanges();
